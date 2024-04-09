@@ -1,8 +1,8 @@
 import { usePersons } from "../hooks"
-export const DeleteButton = ({id}) => {
-	const { handleDeletePerson } = usePersons();
+export const DeleteButton = ({id, setPersons2}) => {
+	const { handleDeletePerson, setPersons } = usePersons();
       const handleDelete = () => {
-        handleDeletePerson(id);
+        handleDeletePerson(id, setPersons);
       };
 
     return (

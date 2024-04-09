@@ -10,8 +10,8 @@ export const PersonForm = ({ newName, setNewName, newNumber, handleNewNumber, pe
 				name: newName,
 				number: newNumber
 			}
-            createUser(newPerson);
 			setPersons([...persons, newPerson])
+            createUser(newPerson);
 		} else {
             const existingUser = persons.find(
               (person) => person.name === newName

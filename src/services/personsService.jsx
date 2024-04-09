@@ -1,5 +1,3 @@
-
-
 const baseUrl = 'http://localhost:3001/persons';
 		
 const getAll = () => {
@@ -29,9 +27,9 @@ const personDelete = (id) => {
     method: "DELETE",
   })
   .then(response => {
-        return response.json();
-    });
-    return request
+      return response.json();
+  });
+  return request
 }
 
 const numberEdit = (id, newPhoneNumber, name) => {

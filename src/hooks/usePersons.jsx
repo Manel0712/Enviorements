@@ -10,6 +10,7 @@ export const usePersons = () => {
 
   const createUser = (newUser) => {
       personsService.create(newUser);
+      setPersons(newUser);
   }
 
   useEffect(() => {
@@ -19,20 +20,17 @@ export const usePersons = () => {
     });
   }, []);
 
-  const handleDeletePerson = (id) => {
+  const handleDeletePerson = (id, setPersons) => {
     const personToDelete = persons.find((person) => person.id === id);
     const confirmation = window.confirm(
       `Are you sure you want to delete ${personToDelete.name}?`
     );
     if (confirmation) {
-      personsService.personDelete(id);
-      const updatedPersons = persons.reduce((acc, person) => {
-        if (person.id !== id) {
-          acc.push(person);
-        }
-        return acc;
-      }, []);
-      setPersons(updatedPersons);
+      personsService.personDelete(id).then(data3 => {
+        personsService.getAll().then(data2 => {
+          setPersons(data2);
+        })
+      });
     }
   };
 
@@ -52,4 +50,4 @@ export const usePersons = () => {
     handleUpdatePerson,
     createUser
   };
-};
+}
