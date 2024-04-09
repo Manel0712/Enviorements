@@ -6,10 +6,11 @@ const App = () => {
 	const { newName, newNumber, handleNewNameValue, handleNewNumberValue } = useForm();
 	const { newFilter, handleNewFilterValue } = useFormFilter();
 	const { persons, handleChangePersonsValue} = usePersons();
-	
+	const title = import.meta.env.VITE_TITLE;
+
 	return (
 		<div>
-			<h2>Phonebook</h2>
+			<h2>{title}</h2>
 			<Filter setNewFilter={ handleNewFilterValue }/>
 			<PersonForm 
 				newName={ newName } 

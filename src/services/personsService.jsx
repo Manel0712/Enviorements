@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:3001/persons';
-		
+const baseUrl = `https://json-server-deploy-6hh3.onrender.com/${import.meta.env.VITE_ENPOINT}`;
+console.log(baseUrl);
 const getAll = () => {
     const request = fetch(baseUrl)
     .then(response => {
