@@ -9,7 +9,7 @@ export const Numbers = ({ persons, newFilter }) => {
             .map((person, i) => (
               <li key={i}>
                 {person.name} {person.number}{" "}
-                <DeleteButton id={person.id} setPersons2={persons} />
+                <DeleteButton id={person.id} />
               </li>
             ))}
         </ul>

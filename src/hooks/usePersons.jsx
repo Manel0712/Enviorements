@@ -26,11 +26,10 @@ export const usePersons = () => {
       `Are you sure you want to delete ${personToDelete.name}?`
     );
     if (confirmation) {
-      personsService.personDelete(id).then(data3 => {
-        personsService.getAll().then(data2 => {
-          setPersons(data2);
-        })
-      });
+      personsService.personDelete(id);
+      personsService.getAll().then(data2 => {
+        setPersons(data2);
+      })
     }
   };
 
